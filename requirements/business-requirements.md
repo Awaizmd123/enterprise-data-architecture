@@ -1,4 +1,4 @@
-# business-requirements– Enterprise Retail Data Platform
+# Business Requirements – Enterprise Retail Data Platform
 
 ## 1. Business Context
 
