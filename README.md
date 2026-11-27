@@ -48,6 +48,7 @@ The architecture supports scalable data integration, enterprise data modeling, c
 
 ## High-Level Architecture
 
+```mermaid
 flowchart TD
     subgraph Sources["Enterprise Source Systems"]
         ERP[ERP]
@@ -60,18 +61,18 @@ flowchart TD
     Sources --> ADF[Azure Data Factory]
 
     subgraph Lakehouse["ADLS Gen2 and Azure Databricks"]
-        B["Bronze Layer — Raw Data"]
-        S["Silver Layer — Standardized Data"]
-        G["Gold Layer — Curated Data"]
+        B[Bronze Layer - Raw Data]
+        S[Silver Layer - Standardized Data]
+        G[Gold Layer - Curated Data]
         B --> S --> G
     end
 
     ADF --> B
-    G --> SF["Snowflake Enterprise Data Warehouse"]
-    G --> ML["AI and Machine Learning"]
-    SF --> BI["Power BI and Business Analytics"]
+    G --> SF[Snowflake Enterprise Data Warehouse]
+    G --> ML[AI and Machine Learning]
+    SF --> BI[Power BI and Business Analytics]
 
-    GOV["Microsoft Purview — Governance and Metadata"]
+    GOV[Microsoft Purview - Governance and Metadata]
     GOV -.-> B
     GOV -.-> S
     GOV -.-> G
