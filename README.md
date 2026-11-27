@@ -49,18 +49,49 @@ The architecture supports scalable data integration, enterprise data modeling, c
 ## High-Level Architecture
 
 ```mermaid
+```mermaid
 flowchart TD
-    A[Source Systems] --> B[Data Ingestion]
-    B --> C[Raw Data Layer]
-    C --> D[Standardized Data Layer]
-    D --> E[Curated Data Layer]
-    E --> F[Enterprise Data Warehouse]
-    E --> G[AI and ML Services]
-    F --> H[Business Intelligence]
-    I[Data Governance and Metadata] -.-> C
-    I -.-> D
-    I -.-> E
-    I -.-> F
+    subgraph Sources["Enterprise Source Systems"]
+        ERP[ERP]
+        CRM[CRM]
+        POS[Point of Sale]
+        ECOM[E-Commerce]
+        WMS[Warehouse Management]
+    end
+
+    Sources --> ADF[Azure Data Factory]
+
+    subgraph Lakehouse["ADLS Gen2 and Azure Databricks"]
+        B["Bronze Layer — Raw Data"]
+        S["Silver Layer — Standardized Data"]
+        G["Gold Layer — Curated Data"]
+        B --> S --> G
+    end
+
+    ADF --> B
+    G --> SF["Snowflake Enterprise Data Warehouse"]
+    G --> ML["AI and Machine Learning"]
+    SF --> BI["Power BI and Business Analytics"]
+
+    GOV["Microsoft Purview — Governance and Metadata"]
+    GOV -.-> B
+    GOV -.-> S
+    GOV -.-> G
+    GOV -.-> SF
+
+    classDef source fill:#e8eef7,stroke:#64748b,color:#1e293b
+    classDef bronze fill:#f3dfcf,stroke:#b77943,color:#1e293b
+    classDef silver fill:#e2e8f0,stroke:#94a3b8,color:#1e293b
+    classDef gold fill:#fef3c7,stroke:#ca8a04,color:#1e293b
+    classDef azure fill:#dbeafe,stroke:#2563eb,color:#1e293b
+    classDef governance fill:#ccfbf1,stroke:#0d9488,color:#1e293b
+
+    class ERP,CRM,POS,ECOM,WMS source
+    class B bronze
+    class S silver
+    class G gold
+    class ADF,SF,ML,BI azure
+    class GOV governance
 ```
 
 ## Technology Stack
