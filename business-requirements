@@ -1,4 +1,137 @@
-enterprise-data-architecture/
-├── business-requirements/
-│   └── README.md       (New file)
-└── README.md           (Existing file)
+# Business Requirements – Enterprise Retail Data Platform
+
+## 1. Business Context
+
+A fictional multinational retail organization operates through physical stores, e-commerce platforms and distribution centers.
+
+Business data is distributed across ERP, CRM, point-of-sale, warehouse management and digital commerce systems.
+
+The organization requires a unified enterprise data platform to support operational intelligence, strategic decision-making, regulatory compliance and AI-enabled analytics.
+
+## 2. Current-State Challenges
+
+- Fragmented data across multiple business systems.
+- Inconsistent customer and product identifiers.
+- Duplicate records and conflicting business definitions.
+- Delayed sales and inventory reporting.
+- Limited end-to-end data lineage.
+- Inconsistent data quality and governance controls.
+- Manual financial reconciliation.
+- Limited availability of reusable data products.
+
+## 3. Business Requirements
+
+| ID | Requirement | Domain | Priority |
+|---|---|---|---|
+| BR001 | Establish a unified Customer 360 view | Customer | P0 |
+| BR002 | Maintain a consistent enterprise product catalog | Product | P0 |
+| BR003 | Consolidate transactions across sales channels | Sales | P0 |
+| BR004 | Enable timely inventory visibility | Inventory | P0 |
+| BR005 | Track supplier performance and procurement | Supply Chain | P1 |
+| BR006 | Enable revenue and cost reconciliation | Finance | P0 |
+| BR007 | Measure campaign effectiveness | Marketing | P1 |
+| BR008 | Establish enterprise metadata and lineage | Governance | P0 |
+| BR009 | Implement automated data quality controls | Governance | P0 |
+| BR010 | Enable reusable AI-ready datasets | Analytics | P1 |
+| BR011 | Protect sensitive customer information | Security | P0 |
+| BR012 | Support historical and trend analysis | Analytics | P0 |
+
+## 4. Non-Functional Requirements
+
+The following are illustrative design targets, subject to stakeholder validation.
+
+| ID | Requirement | Proposed Target |
+|---|---|---|
+| NFR001 | Platform availability | 99.9% monthly |
+| NFR002 | Sales data freshness | Within 15 minutes |
+| NFR003 | Finance data freshness | Daily |
+| NFR004 | Critical data quality | At least 99.5% valid records |
+| NFR005 | Scalability | Support 2x annual volume growth |
+| NFR006 | Data protection | Encryption at rest and in transit |
+| NFR007 | Access control | Role-based, least privilege |
+| NFR008 | Recovery time objective | 4 hours |
+| NFR009 | Recovery point objective | 1 hour |
+| NFR010 | Data lineage | All critical data elements mapped |
+
+## 5. Source Systems
+
+| System | Data Domains |
+|---|---|
+| ERP | Finance, Procurement, Product |
+| CRM | Customer, Loyalty |
+| POS | Sales, Payments, Returns |
+| E-Commerce | Orders, Customer, Digital Activity |
+| WMS | Inventory, Warehouse, Shipments |
+| Marketing Platform | Campaigns, Promotions |
+| External APIs | Reference and Enrichment Data |
+
+## 6. Key Business Use Cases
+
+### UC001 – Customer 360
+
+Unify customer profiles, transaction history, loyalty information and consent preferences.
+
+### UC002 – Omnichannel Sales Analytics
+
+Analyze sales performance by channel, product, customer segment, geography and time.
+
+### UC003 – Inventory Optimization
+
+Identify inventory shortages, excess stock, inventory turnover and replenishment needs.
+
+### UC004 – Supplier Performance
+
+Measure supplier lead times, delivery accuracy and procurement costs.
+
+### UC005 – Financial Reconciliation
+
+Reconcile sales, payments, refunds and financial ledger postings.
+
+### UC006 – AI-Enabled Demand Forecasting
+
+Provide governed historical sales, inventory and promotion datasets for forecasting.
+
+## 7. Stakeholders
+
+- Enterprise Data Architecture
+- Data Engineering
+- Business Intelligence and Analytics
+- Marketing and Customer Experience
+- Finance
+- Supply Chain and Operations
+- Information Security
+- Data Governance and Stewardship
+
+## 8. Scope Boundaries
+
+### In Scope
+
+- Enterprise data models
+- Analytical data integration
+- Cloud data platform reference architecture
+- Metadata, lineage and data quality
+- Analytical and AI-ready data products
+
+### Out of Scope
+
+- Replacement of operational ERP and CRM systems
+- Production application development
+- Payment processing implementation
+- Production infrastructure deployment
+
+## 9. Assumptions
+
+- All business scenarios and datasets are fictional.
+- Source systems expose approved extraction interfaces.
+- Business domains have designated data owners.
+- Architecture targets require stakeholder validation.
+- Sensitive data is classified before ingestion.
+
+## 10. Success Criteria
+
+- Traceability from business requirements to data models.
+- Consistent business entity definitions.
+- Validated primary and foreign key relationships.
+- Documented source-to-target mappings.
+- Defined data quality and governance controls.
+- Demonstrable analytical use cases using synthetic data.
