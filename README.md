@@ -48,8 +48,6 @@ The architecture supports scalable data integration, enterprise data modeling, c
 
 ## High-Level Architecture
 
-```mermaid
-```mermaid
 flowchart TD
     subgraph Sources["Enterprise Source Systems"]
         ERP[ERP]
